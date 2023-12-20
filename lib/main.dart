@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:web_ui_chal/core/core.dart';
 import 'package:web_ui_chal/view/main-screen/main.screen.dart';
 
 void main() {
@@ -15,11 +16,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        textTheme: Theme.of(context).textTheme.apply(fontFamily: "Open Sans"),
-      ),
+      theme:  AppThemes.lightTheme,
+      themeMode: ThemeMode.dark,
       home: const MainScreen(),
     );
   }

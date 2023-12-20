@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:web_ui_chal/core/theme.dart';
+import 'package:web_ui_chal/core/core.dart';
+
 
 class NavigationBarr extends StatelessWidget {
   const NavigationBarr({super.key});
@@ -13,7 +14,7 @@ class NavigationBarr extends StatelessWidget {
           SizedBox(
             height: 80,
             width: 150,
-            child: Image.asset(AppImages.heavyRain),
+            child: Image.asset(AppImages.map),
           ),
           const Row(
             mainAxisSize: MainAxisSize.min,
