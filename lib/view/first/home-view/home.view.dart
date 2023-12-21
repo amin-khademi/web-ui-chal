@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:web_ui_chal/view/widget/call-to-action/call.to.action.dart';
-import 'package:web_ui_chal/view/widget/center_view/center.view.dart';
-import 'package:web_ui_chal/view/widget/course-detail/course.detail.dart';
-import 'package:web_ui_chal/view/widget/navigationBar/navigation.bar.dart';
+import 'package:web_ui_chal/view/widget/first/call-to-action/call.to.action.dart';
+import 'package:web_ui_chal/view/widget/first/center_view/center.view.dart';
+import 'package:web_ui_chal/view/widget/first/course-detail/course.detail.dart';
+import 'package:web_ui_chal/view/widget/first/navigationBar/navigation.bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

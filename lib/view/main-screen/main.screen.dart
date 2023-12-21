@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:web_ui_chal/view/home-view/home.view.dart';
+import 'package:web_ui_chal/view/first/home-view/home.view.dart';
+import 'package:web_ui_chal/view/second/home-page/home.page.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -19,6 +21,13 @@ class MainScreen extends StatelessWidget {
             color: Colors.cyan,
             onpressed: () => Get.to(
               () => const HomeView(),
+            ),
+          ),
+          _Item(
+            title: "second",
+            color: Colors.yellow,
+            onpressed: () => Get.to(
+              () => const SecondHomePage(),
             ),
           )
         ],
@@ -39,13 +48,13 @@ class _Item extends StatelessWidget {
     return GestureDetector(
       onTap: onpressed,
       child: Container(
-        width: 80,
-        height: 80,
+        width: 100.h,
+        height: 100.h,
         decoration: BoxDecoration(
             color: color, borderRadius: BorderRadius.circular(30)),
         child: Center(
             child: DefaultTextStyle(
-                style: const TextStyle(fontSize: 30), child: Text(title))),
+                style:  TextStyle(fontSize: 5.sp), child: Text(title))),
       ),
     );
   }
