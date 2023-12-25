@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 part 'constants.dart';
+part 'dimens.dart';
 part 'theme.dart';
 
 
