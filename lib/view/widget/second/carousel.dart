@@ -1,7 +1,6 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
 import 'package:flutter/material.dart';
+import 'package:web_ui_chal/core/core.dart';
 
 class MainCarousel extends StatefulWidget {
   const MainCarousel({super.key});
@@ -11,7 +10,7 @@ class MainCarousel extends StatefulWidget {
 }
 
 class _MainCarouselState extends State<MainCarousel> {
-  final String imagePath = 'assets/images/';
+  
 
   final CarouselController _controller = CarouselController();
 
@@ -21,12 +20,12 @@ class _MainCarouselState extends State<MainCarousel> {
   int _current = 0;
 
   final List<String> images = [
-    'assets/images/asia.jpg',
-    'assets/images/africa.jpg',
-    'assets/images/europe.jpg',
-    'assets/images/south_america.jpg',
-    'assets/images/australia.jpg',
-    'assets/images/antarctica.jpg',
+    AppImages.imagesAsia,
+    AppImages.imagesAfrica,
+    AppImages.imagesEurope,
+    AppImages.imagesSouthAmerica,
+    AppImages.imagesAustralia,
+    AppImages.imagesAntarctica,
   ];
 
   final List<String> places = [
@@ -49,7 +48,7 @@ class _MainCarouselState extends State<MainCarousel> {
             ),
           ),
         )
-        .toList();
+      .toList();
   }
 
   @override
@@ -63,7 +62,7 @@ class _MainCarouselState extends State<MainCarousel> {
           items: imageSliders,
           options: CarouselOptions(
               enlargeCenterPage: true,
-              aspectRatio: 18 / 8,
+              aspectRatio: 18/7,
               autoPlay: true,
               onPageChanged: (index, reason) {
                 setState(() {
