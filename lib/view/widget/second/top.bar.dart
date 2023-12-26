@@ -12,7 +12,6 @@ class TopBarContents extends StatefulWidget {
 }
 
 class _TopBarContentsState extends State<TopBarContents> {
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -33,24 +32,33 @@ class _TopBarContentsState extends State<TopBarContents> {
                     SizedBox(
                       width: screenSize.width / 4,
                     ),
-                     Text(
+                    const Text(
                       'Author',
                       style: TextStyle(
-                        color: const Color(0xFF077bd7),
-                        fontSize: 6.sp,
+                        color: Color(0xFF077bd7),
+                        fontSize: 26,
                         fontFamily: 'Raleway',
                         fontWeight: FontWeight.w900,
                         letterSpacing: 3,
                       ),
                     ),
                     _spaceBetween(screenSize),
-                    _TopBarItem(index: 0,title: "Home"),
+                    _TopBarItem(index: 0, title: "Home"),
                     _spaceBetween(screenSize),
-                    _TopBarItem(index: 1,title: "About",),
+                    _TopBarItem(
+                      index: 1,
+                      title: "About",
+                    ),
                     _spaceBetween(screenSize),
-                    _TopBarItem(index: 1,title: "History",),
+                    _TopBarItem(
+                      index: 1,
+                      title: "History",
+                    ),
                     _spaceBetween(screenSize),
-                    _TopBarItem(index: 1,title: "Contact",)
+                    _TopBarItem(
+                      index: 1,
+                      title: "Contact",
+                    )
                   ],
                 ),
               ),
@@ -60,18 +68,14 @@ class _TopBarContentsState extends State<TopBarContents> {
       ),
     );
   }
-
- 
 }
-Widget _spaceBetween(Size screenSize) =>
-      SizedBox(width: screenSize.width / 15);
 
-
+Widget _spaceBetween(Size screenSize) => SizedBox(width: screenSize.width / 15);
 
 class _TopBarItem extends StatelessWidget {
   final String title;
   final int index;
-  _TopBarItem({ required this.title, required this.index});
+  _TopBarItem({required this.title, required this.index});
 
   final RxList _isHovering =
       [false, false, false, false, false, false, false, false].obs;
@@ -86,12 +90,12 @@ class _TopBarItem extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-             Text(
+            Text(
               title,
-              style:  TextStyle(
-                  color: const Color(0xFF077bd7),
+              style: const TextStyle(
+                  color: Color(0xFF077bd7),
                   fontWeight: FontWeight.bold,
-                  fontSize: 4.sp),
+                  fontSize: 16),
             ),
             const SizedBox(height: 5),
             Visibility(

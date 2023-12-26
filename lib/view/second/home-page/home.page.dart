@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:web_ui_chal/core/core.dart';
 import 'package:web_ui_chal/view/widget/second/FeaturedTiles.dart';
 import 'package:web_ui_chal/view/widget/second/FloatingQuickAccessBar.dart';
+import 'package:web_ui_chal/view/widget/second/bottom-bar.dart';
 import 'package:web_ui_chal/view/widget/second/carousel.dart';
 import 'package:web_ui_chal/view/widget/second/feature.heading.dart';
 import 'package:web_ui_chal/view/widget/second/main.heading.dart';
@@ -54,7 +55,9 @@ class _SecondHomePageState extends State<SecondHomePage> {
                     FeaturedHeading(screenSize: Get.size),
                     FeaturedTiles(screenSize: Get.size),
                     MainHeading(screenSize: Get.size),
-                    const MainCarousel()
+                    const MainCarousel(),
+                    SizedBox(height: Dimens.height/10,),
+                    BottomBar()
                   ],
                 )
               ],
