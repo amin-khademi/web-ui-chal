@@ -8,20 +8,39 @@ import 'package:web_ui_chal/view/widget/second/feature.heading.dart';
 import 'package:web_ui_chal/view/widget/second/main.heading.dart';
 import 'package:web_ui_chal/view/widget/second/top.bar.dart';
 
-class SecondHomePage extends StatelessWidget {
+class SecondHomePage extends StatefulWidget {
   const SecondHomePage({super.key});
 
   @override
+  State<SecondHomePage> createState() => _SecondHomePageState();
+}
+
+class _SecondHomePageState extends State<SecondHomePage> {
+  final ScrollController scrollController = ScrollController();
+  double scrollPosition = 0;
+  double opacity = 0;
+
+  scrollListener() {
+    setState(() {
+      scrollPosition = scrollController.position.pixels;
+    });
+  }
+
+  @override
+  void initState() {
+    scrollController.addListener(scrollListener);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final ScrollController scrollController = ScrollController();
-    double scrollPosition = 0;
-    double opacity = 0;
     opacity = scrollPosition < Dimens.height * 0.40
         ? scrollPosition / (Dimens.height * 0.40)
         : 1;
     return Scaffold(
       appBar: _appBar(opacity),
       body: SingleChildScrollView(
+        controller: scrollController,
         child: Column(
           children: [
             Stack(
@@ -55,12 +74,12 @@ PreferredSize _appBar(double opacity) {
 }
 
 SizedBox _svgBackground() {
-    return SizedBox(
-                height: Dimens.height * 0.65,
-                width: Dimens.width,
-                child: Image.asset(
-                  AppImages.imagesBackground,
-                  fit: BoxFit.cover,
-                ),
-              );
-  }
+  return SizedBox(
+    height: Dimens.height * 0.65,
+    width: Dimens.width,
+    child: Image.asset(
+      AppImages.imagesBackground,
+      fit: BoxFit.cover,
+    ),
+  );
+}

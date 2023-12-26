@@ -62,7 +62,7 @@ class _MainCarouselState extends State<MainCarousel> {
           items: imageSliders,
           options: CarouselOptions(
               enlargeCenterPage: true,
-              aspectRatio: 18/7,
+              aspectRatio: 18 / 8,
               autoPlay: true,
               onPageChanged: (index, reason) {
                 setState(() {
