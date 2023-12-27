@@ -7,6 +7,7 @@ import 'package:web_ui_chal/view/widget/second/bottom-bar.dart';
 import 'package:web_ui_chal/view/widget/second/carousel.dart';
 import 'package:web_ui_chal/view/widget/second/feature.heading.dart';
 import 'package:web_ui_chal/view/widget/second/main.heading.dart';
+import 'package:web_ui_chal/view/widget/second/menu.drawer.dart';
 import 'package:web_ui_chal/view/widget/second/top.bar.dart';
 
 class SecondHomePage extends StatefulWidget {
@@ -35,13 +36,15 @@ class _SecondHomePageState extends State<SecondHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    opacity = scrollPosition < Dimens.height * 0.40
-        ? scrollPosition / (Dimens.height * 0.40)
+    var screenSize = MediaQuery.of(context).size;
+    opacity = scrollPosition < screenSize.height * 0.40
+        ? scrollPosition / (screenSize.height * 0.40)
         : 1;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: Dimens.width < 800
+      appBar: screenSize.width < 800
           ? AppBar(
+              iconTheme: const IconThemeData(color: Colors.blue),
               backgroundColor: Colors.white.withOpacity(opacity),
               elevation: 0,
               title: const Text(
@@ -56,16 +59,36 @@ class _SecondHomePageState extends State<SecondHomePage> {
               ),
             )
           : PreferredSize(
-              preferredSize: Size(Dimens.width, 70),
+              preferredSize: Size(screenSize.width, 70),
               child: TopBarContents(opacity),
             ),
+      drawer: const MenuDrawer(),
       body: SingleChildScrollView(
         controller: scrollController,
         child: Column(
           children: [
             Stack(
               children: [
-                _svgBackground(),
+                screenSize.width < 800
+                    ? Padding(
+                      padding: const EdgeInsets.only(top:80),
+                      child: SizedBox(
+                          height: screenSize.height / 2.5,
+                          width: screenSize.width,
+                          child: Image.asset(
+                            AppImages.imagesBackground,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                    )
+                    : SizedBox(
+                        height: screenSize.height * 0.65,
+                        width: screenSize.width,
+                        child: Image.asset(
+                          AppImages.imagesBackground,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                 Column(
                   children: [
                     FloatingQuickAccessBar(
@@ -76,7 +99,7 @@ class _SecondHomePageState extends State<SecondHomePage> {
                     MainHeading(screenSize: Get.size),
                     const MainCarousel(),
                     SizedBox(
-                      height: Dimens.height / 10,
+                      height: screenSize.height / 10,
                     ),
                     const BottomBar()
                   ],
@@ -88,15 +111,4 @@ class _SecondHomePageState extends State<SecondHomePage> {
       ),
     );
   }
-}
-
-SizedBox _svgBackground() {
-  return SizedBox(
-    height: Dimens.height * 0.65,
-    width: Dimens.width,
-    child: Image.asset(
-      AppImages.imagesBackground,
-      fit: BoxFit.cover,
-    ),
-  );
 }

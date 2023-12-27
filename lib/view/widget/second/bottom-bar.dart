@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_ui_chal/view/widget/second/bottom-bar-column.dart';
 import 'package:web_ui_chal/view/widget/second/info-text.dart';
+import 'package:web_ui_chal/view/widget/second/responsive.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({
@@ -22,36 +23,36 @@ class BottomBar extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(30),
       //color: Colors.blueGrey[900],
-      child: Column(
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const BottomBarColumn(
-                heading: 'ABOUT',
-                s1: 'Contact Us',
-                s2: 'About Us',
-                s3: 'Careers',
+      child: ResponsiveWidget.isSmallScreen(context)
+          ? const Column(children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  BottomBarColumn(
+                    heading: 'ABOUT',
+                    s1: 'Contact Us',
+                    s2: 'About Us',
+                    s3: 'Careers',
+                  ),
+                  BottomBarColumn(
+                    heading: 'HELP',
+                    s1: 'Payment',
+                    s2: 'Cancellation',
+                    s3: 'FAQ',
+                  ),
+                  BottomBarColumn(
+                    heading: 'SOCIAL',
+                    s1: 'Twitter',
+                    s2: 'Facebook',
+                    s3: 'YouTube',
+                  ),
+                ],
               ),
-              const BottomBarColumn(
-                heading: 'HELP',
-                s1: 'Payment',
-                s2: 'Cancellation',
-                s3: 'FAQ',
-              ),
-              const BottomBarColumn(
-                heading: 'SOCIAL',
-                s1: 'Twitter',
-                s2: 'Facebook',
-                s3: 'YouTube',
-              ),
-              Container(
+              Divider(
                 color: Colors.white,
-                width: 2,
-                height: 150,
               ),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InfoText(
@@ -65,21 +66,76 @@ class BottomBar extends StatelessWidget {
                   )
                 ],
               ),
-            ],
-          ),
-          const Divider(
-            color: Colors.white,
-          ),
-          const SizedBox(height: 20),
-          const Text(
-            'Copyright © 2021 | DBestech',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 14,
+              Divider(
+                color: Colors.white,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Copyright © 2021 | DBestech',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
+              ),
+            ])
+          : Column(
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const BottomBarColumn(
+                      heading: 'ABOUT',
+                      s1: 'Contact Us',
+                      s2: 'About Us',
+                      s3: 'Careers',
+                    ),
+                    const BottomBarColumn(
+                      heading: 'HELP',
+                      s1: 'Payment',
+                      s2: 'Cancellation',
+                      s3: 'FAQ',
+                    ),
+                    const BottomBarColumn(
+                      heading: 'SOCIAL',
+                      s1: 'Twitter',
+                      s2: 'Facebook',
+                      s3: 'YouTube',
+                    ),
+                    Container(
+                      color: Colors.white,
+                      width: 2,
+                      height: 150,
+                    ),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InfoText(
+                          type: 'Email',
+                          text: 'dylan@gmail.com',
+                        ),
+                        SizedBox(height: 5),
+                        InfoText(
+                          type: 'Address',
+                          text: '128, Trymore Road, Delft, MN - 56124',
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                const Divider(
+                  color: Colors.white,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Copyright © 2021 | DBestech',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

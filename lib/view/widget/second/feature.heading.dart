@@ -16,26 +16,47 @@ class FeaturedHeading extends StatelessWidget {
         left: screenSize.width / 15,
         right: screenSize.width / 15,
       ),
-      child: const Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            'Featured',
-            style: TextStyle(
-                fontSize: 36,
-                fontFamily: 'Raleway',
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF263b5e)),
-          ),
-          Expanded(
-            child: Text(
-              'Clue of the wooden cottage',
-              textAlign: TextAlign.end,
+      child: screenSize.width < 800
+          ? const Row(children: [Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Featured',
+                  style: TextStyle(
+                      fontSize: 36,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue),
+                ),
+                SizedBox(height: 5,),
+                 Text(
+                    'Clue of the wooden cottage',
+                    textAlign: TextAlign.end,
+                  ),
+                
+              ],
+            )],)
+          : const Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Featured',
+                  style: TextStyle(
+                      fontSize: 36,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue),
+                ),
+                Expanded(
+                  child: Text(
+                    'Clue of the wooden cottage',
+                    textAlign: TextAlign.end,
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

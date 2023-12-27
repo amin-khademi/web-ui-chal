@@ -35,21 +35,21 @@ class BottomBarColumn extends StatelessWidget {
           Text(
             s1,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.white60,
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
           ),Text(
             s2,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.white60,
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
           ),Text(
             s3,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.white60,
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),

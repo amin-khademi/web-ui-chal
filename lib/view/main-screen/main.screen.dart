@@ -9,28 +9,31 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: Colors.white,
       width: double.infinity,
-      child: Wrap(
-        alignment: WrapAlignment.spaceEvenly,
-        spacing: 40,
-        runSpacing: 60,
-        children: [
-          _Item(
-            title: "first",
-            color: Colors.cyan,
-            onpressed: () => Get.to(
-              () => const HomeView(),
+      child: Center(
+        child: Wrap(
+          alignment: WrapAlignment.spaceEvenly,
+          spacing: 40,
+          runSpacing: 60,
+          children: [
+            _Item(
+              title: "first",
+              color: Colors.cyan,
+              onpressed: () => Get.to(
+                () => const HomeView(),
+              ),
             ),
-          ),
-          _Item(
-            title: "second",
-            color: Colors.yellow,
-            onpressed: () => Get.to(
-              () => const SecondHomePage(),
-            ),
-          )
-        ],
+            _Item(
+              title: "second",
+              color: Colors.yellow,
+              onpressed: () => Get.to(
+                () => const SecondHomePage(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -54,7 +57,7 @@ class _Item extends StatelessWidget {
             color: color, borderRadius: BorderRadius.circular(30)),
         child: Center(
             child: DefaultTextStyle(
-                style:  TextStyle(fontSize: 5.sp), child: Text(title))),
+                style: const TextStyle(fontSize: 25), child: Text(title))),
       ),
     );
   }

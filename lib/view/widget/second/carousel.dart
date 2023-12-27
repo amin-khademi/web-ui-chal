@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:web_ui_chal/core/core.dart';
+import 'package:web_ui_chal/view/widget/second/responsive.dart';
 
 class MainCarousel extends StatefulWidget {
   const MainCarousel({super.key});
@@ -92,7 +93,7 @@ class _MainCarouselState extends State<MainCarousel> {
             ),
           ),
         ),
-        AspectRatio(
+       ResponsiveWidget.isSmallScreen(context)?Container(): AspectRatio(
           aspectRatio: 17 / 8,
           child: Center(
             heightFactor: 1,
