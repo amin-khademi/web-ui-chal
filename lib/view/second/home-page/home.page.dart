@@ -39,7 +39,26 @@ class _SecondHomePageState extends State<SecondHomePage> {
         ? scrollPosition / (Dimens.height * 0.40)
         : 1;
     return Scaffold(
-      appBar: _appBar(opacity),
+      extendBodyBehindAppBar: true,
+      appBar: Dimens.width < 800
+          ? AppBar(
+              backgroundColor: Colors.white.withOpacity(opacity),
+              elevation: 0,
+              title: const Text(
+                'Author',
+                style: TextStyle(
+                  color: Color(0xFF077bd7),
+                  fontSize: 26,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 3,
+                ),
+              ),
+            )
+          : PreferredSize(
+              preferredSize: Size(Dimens.width, 70),
+              child: TopBarContents(opacity),
+            ),
       body: SingleChildScrollView(
         controller: scrollController,
         child: Column(
@@ -56,8 +75,10 @@ class _SecondHomePageState extends State<SecondHomePage> {
                     FeaturedTiles(screenSize: Get.size),
                     MainHeading(screenSize: Get.size),
                     const MainCarousel(),
-                    SizedBox(height: Dimens.height/10,),
-                    BottomBar()
+                    SizedBox(
+                      height: Dimens.height / 10,
+                    ),
+                    const BottomBar()
                   ],
                 )
               ],
@@ -67,13 +88,6 @@ class _SecondHomePageState extends State<SecondHomePage> {
       ),
     );
   }
-}
-
-PreferredSize _appBar(double opacity) {
-  return PreferredSize(
-    preferredSize: Size(Dimens.width, 70),
-    child: TopBarContents(opacity),
-  );
 }
 
 SizedBox _svgBackground() {
